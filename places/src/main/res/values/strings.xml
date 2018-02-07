@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Places</string>
+
+    <string name="empty_local_list">Local places list is empty</string>
+    <string name="network_error">No internet connection</string>
+    <string name="unknown_error">Unknown error</string>
 </resources>

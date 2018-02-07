@@ -28,4 +28,16 @@ dependencies {
 
     // Util library
     implementation project(path: ':util')
+
+    // Rx Android/Java
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+
+    // Room for database
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomDb"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomDb"
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.roomDb"
+
+    // Location
+    compile 'com.yayandroid:LocationManager:2.0.4'
 }
