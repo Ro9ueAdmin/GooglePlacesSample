@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.webonise"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Test dependencies
+    testImplementation "junit:junit:$rootProject.junit"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espresso"
+
+    // Android Support Library
+    implementation "com.android.support:appcompat-v7:$rootProject.androidSupportLibVersion"
+
+    // Constraint Layout
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // Util library
+    implementation project(path: ':util')
+
+    // Places library
+    implementation project(path: ':places')
+}
