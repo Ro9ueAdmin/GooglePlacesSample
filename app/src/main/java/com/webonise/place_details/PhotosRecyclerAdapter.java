@@ -1,5 +1,6 @@
 package com.webonise.place_details;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.webonise.R;
 import com.webonise.constants.Constants;
+import com.webonise.download.DownloadHelper;
 import com.webonise.rest.response.PhotoResponseData;
 import com.webonise.util.ImageUtil;
 import com.webonise.util.ValidationUtil;
@@ -19,10 +22,13 @@ public class PhotosRecyclerAdapter extends RecyclerView.Adapter<PhotosRecyclerAd
 
     private LayoutInflater layoutInflater;
     private List<PhotoResponseData> photoList;
+    private DownloadHelper downloadHelper;
 
     PhotosRecyclerAdapter(Context context, List<PhotoResponseData> photoList) {
         layoutInflater = LayoutInflater.from(context);
         this.photoList = photoList;
+        RxPermissions rxPermissions = new RxPermissions((Activity) context);
+        downloadHelper = new DownloadHelper(context, rxPermissions);
     }
 
     @Override
@@ -33,13 +39,25 @@ public class PhotosRecyclerAdapter extends RecyclerView.Adapter<PhotosRecyclerAd
 
     @Override
     public void onBindViewHolder(PhotoViewHolder holder, int position) {
-        PhotoResponseData photoResponseData = photoList.get(position);
+        final PhotoResponseData photoResponseData = photoList.get(position);
         if (ValidationUtil.isStringNotEmpty(photoResponseData.photo_reference)) {
             ImageUtil.load(
                     Constants.ImageType.PLACE_PHOTO,
                     holder.imageView,
                     photoResponseData.photo_reference
             );
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    downloadHelper.startDownloading(
+                            ImageUtil.createPhotoDownloadUrl(
+                                    photoResponseData.photo_reference
+                            ),
+                            String.valueOf(System.currentTimeMillis())
+                    );
+                    return true;
+                }
+            });
         }
     }
 

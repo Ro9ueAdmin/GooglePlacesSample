@@ -22,7 +22,7 @@ public class AppModels {
     private final PreferenceHelper preferenceHelper;
     private final PlacesDataProvider placesDataProvider;
 
-    public AppModels(Context context) {
+    AppModels(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         preferenceHelper = new PreferenceHelper(sharedPreferences);
 
@@ -34,7 +34,7 @@ public class AppModels {
 
         AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, DB_NAME).build();
         PlacesLocalRepo placesLocalRepo = database.getPlacesLocalRepo();
-        placesDataProvider = new PlacesDataProviderImpl(context, placesApi, placesLocalRepo);
+        placesDataProvider = new PlacesDataProviderImpl(placesApi, placesLocalRepo);
     }
 
     public PreferenceHelper getPreferenceHelper() {

@@ -13,11 +13,7 @@ public class ImageUtil {
                 imageView.setImageURI(Uri.parse(imageUrl));
                 break;
             case Constants.ImageType.PLACE_PHOTO:
-                String photoUri = "https://maps.googleapis.com/maps/api/place/photo?"
-                        + "&maxwidth=100"
-                        + "&maxheight=100"
-                        + "&photoreference=" + imageUrl
-                        + "&key=" + com.webonise.places.constants.Constants.API_KEY;
+                String photoUri = createPhotoDownloadUrl(imageUrl);
                 imageView.setImageURI(Uri.parse(photoUri));
                 break;
             default:
@@ -25,4 +21,11 @@ public class ImageUtil {
         }
     }
 
+    public static String createPhotoDownloadUrl(String reference) {
+        return "https://maps.googleapis.com/maps/api/place/photo?"
+                + "&maxwidth=100"
+                + "&maxheight=100"
+                + "&photoreference=" + reference
+                + "&key=" + com.webonise.places.constants.Constants.API_KEY;
+    }
 }

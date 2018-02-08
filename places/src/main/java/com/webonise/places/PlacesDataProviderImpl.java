@@ -1,6 +1,5 @@
 package com.webonise.places;
 
-import android.content.Context;
 import android.location.Location;
 
 import com.webonise.places.constants.Constants;
@@ -19,17 +18,16 @@ import java.util.concurrent.Callable;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
+import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class PlacesDataProviderImpl implements PlacesDataProvider {
 
-    private final Context context;
     private final PlacesApi placesApi;
     private final PlacesLocalRepo placesLocalRepo;
 
-    public PlacesDataProviderImpl(Context context, PlacesApi placesApi, PlacesLocalRepo placesLocalRepo) {
-        this.context = context;
+    public PlacesDataProviderImpl(PlacesApi placesApi, PlacesLocalRepo placesLocalRepo) {
         this.placesApi = placesApi;
         this.placesLocalRepo = placesLocalRepo;
     }
@@ -50,7 +48,7 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
     }
 
     @Override
-    public Single<Response<Place>> getPlaceDetails(String placeId) {
+    public Single<Response<Place>> getPlaceDetails(final String placeId) {
         return placesApi.getPlaceDetails(Constants.API_KEY, placeId)
                 .map(new Function<PlaceDetailsResponse, Response<Place>>() {
                     @Override
@@ -60,6 +58,15 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
                         }
                         Place place = new Place(response.result);
                         return new Response<>(Constants.ResponseSource.NETWORK, place);
+                    }
+                })
+                .doOnSuccess(new Consumer<Response<Place>>() {
+                    @Override
+                    public void accept(Response<Place> response) throws Exception {
+                        Place place = response.getData();
+                        if (place != null && ValidationUtil.isStringNotEmpty(place.getPlaceId())) {
+                            placesLocalRepo.insertDetails(response.getData());
+                        }
                     }
                 });
     }

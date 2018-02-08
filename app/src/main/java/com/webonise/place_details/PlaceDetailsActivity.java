@@ -14,7 +14,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.webonise.AppManager;
-import com.webonise.AppModels;
 import com.webonise.BaseActivity;
 import com.webonise.R;
 import com.webonise.constants.Constants;
@@ -42,12 +41,19 @@ public class PlaceDetailsActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_place_details);
 
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(onMapReadyCallback);
 
         photoResponseDataList = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         binding.recyclerView.setLayoutManager(linearLayoutManager);
         photosRecyclerAdapter = new PhotosRecyclerAdapter(this, photoResponseDataList);
         binding.recyclerView.setAdapter(photosRecyclerAdapter);
@@ -86,11 +92,17 @@ public class PlaceDetailsActivity extends BaseActivity
     @Override
     public void showPlaceDetails(Place place) {
         this.place = place;
-        showData();
+        showDataOnMap();
+        if (ValidationUtil.isStringNotEmpty(place.getName())) {
+            binding.title.setText(place.getName());
+        }
         if (ValidationUtil.isListNotEmpty(place.getPhotos())) {
+            binding.emptyView.setVisibility(View.INVISIBLE);
             photoResponseDataList.clear();
             photoResponseDataList.addAll(place.getPhotos());
             photosRecyclerAdapter.notifyDataSetChanged();
+        } else {
+            binding.emptyView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -98,11 +110,11 @@ public class PlaceDetailsActivity extends BaseActivity
         @Override
         public void onMapReady(GoogleMap googleMap) {
             PlaceDetailsActivity.this.googleMap = googleMap;
-            showData();
+            showDataOnMap();
         }
     };
 
-    private void showData() {
+    private void showDataOnMap() {
         if (googleMap != null && place != null && place.getLatitude() != -1 && place.getLongitude() != -1) {
             LatLng selectedLocation = new LatLng(place.getLatitude(), place.getLongitude());
             Marker marker = googleMap.addMarker(new MarkerOptions()

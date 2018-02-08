@@ -18,7 +18,7 @@ public interface PlacesApi {
             @Query("pagetoken") String pageToken
     );
 
-    @GET("maps/api/place/details/output")
+    @GET("maps/api/place/details/json")
     Single<PlaceDetailsResponse> getPlaceDetails(
             @Query("key") String apiKey,
             @Query("placeid") String placeId
