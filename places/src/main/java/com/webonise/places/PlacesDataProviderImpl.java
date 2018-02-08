@@ -4,7 +4,6 @@ import android.content.Context;
 import android.location.Location;
 
 import com.webonise.places.constants.Constants;
-import com.webonise.places.factory.ErrorResponseFactory;
 import com.webonise.places.storage.PlacesLocalRepo;
 import com.webonise.rest.PlacesApi;
 import com.webonise.rest.ResponseCode;
@@ -57,8 +56,7 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
                     @Override
                     public Response<Place> apply(PlaceDetailsResponse response) throws Exception {
                         if (response == null || !response.status.equals(ResponseCode.Places.OK)) {
-                            Response<Void> noLocalPlaceMsg = ErrorResponseFactory.createErrorResponse(context, Constants.ErrorType.EMPTY_SERVER_PLACE_LIST);
-                            throw new PlaceException(noLocalPlaceMsg);
+                            throw new PlaceException(Constants.ErrorType.EMPTY_LOCAL_PLACE_LIST);
                         }
                         Place place = new Place(response.result);
                         return new Response<>(Constants.ResponseSource.NETWORK, place);
@@ -87,8 +85,7 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
                     @Override
                     public SingleSource<Response<SearchResult>> apply(List<Place> places) throws Exception {
                         if (ValidationUtil.isListEmpty(places)) {
-                            Response<Void> noLocalPlaceMsg = ErrorResponseFactory.createErrorResponse(context, Constants.ErrorType.EMPTY_LOCAL_PLACE_LIST);
-                            return Single.error(new PlaceException(noLocalPlaceMsg));
+                            return Single.error(new PlaceException(Constants.ErrorType.EMPTY_LOCAL_PLACE_LIST));
                         }
                         SearchResult searchResult = new SearchResult(places, null, null);
                         return Single.just(new Response<>(Constants.ResponseSource.LOCAL, searchResult));
@@ -116,8 +113,7 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
                         if (response == null ||
                                 !response.status.equals(ResponseCode.Places.OK) ||
                                 ValidationUtil.isListEmpty(response.results)) {
-                            Response<Void> noLocalPlaceMsg = ErrorResponseFactory.createErrorResponse(context, Constants.ErrorType.EMPTY_SERVER_PLACE_LIST);
-                            return Single.error(new PlaceException(noLocalPlaceMsg));
+                            return Single.error(new PlaceException(response != null ? response.status : Constants.ErrorType.GOOGLE_API_ERROR));
                         }
 
                         List<Place> placeList = new ArrayList<>();
@@ -132,7 +128,11 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
     }
 
     private String getFormattedLocation(Location location) {
-        return "";
+        if (location == null) {
+            return null;
+        } else {
+            return location.getLatitude() + ", " + location.getLongitude();
+        }
     }
 
 }

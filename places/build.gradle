@@ -34,9 +34,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
 
     // Room for database
-    implementation "android.arch.persistence.room:runtime:$rootProject.roomDb"
+    api "android.arch.persistence.room:runtime:$rootProject.roomDb"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomDb"
-    implementation "android.arch.persistence.room:rxjava2:$rootProject.roomDb"
+    api "android.arch.persistence.room:rxjava2:$rootProject.roomDb"
 
     // Location
     compile 'com.yayandroid:LocationManager:2.0.4'

@@ -1,5 +1,7 @@
 package com.webonise.places;
 
+import com.webonise.util.ValidationUtil;
+
 public class Response<T> {
 
     private String errorMessage;
@@ -27,6 +29,10 @@ public class Response<T> {
 
     public String getResponseSource() {
         return responseSource;
+    }
+
+    public boolean isError() {
+        return ValidationUtil.isStringNotEmpty(errorType);
     }
 
     public T getData() {

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Webonise</string>
+
+    <string name="search_place">Type name of a place</string>
 </resources>

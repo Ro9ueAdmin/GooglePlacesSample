@@ -16,6 +16,10 @@ public class PreferenceHelper {
 
     private SharedPreferences sharedPreferences;
 
+    public PreferenceHelper(SharedPreferences sharedPreferences) {
+        this.sharedPreferences = sharedPreferences;
+    }
+
     public void saveLocation(Location location) {
         try {
             JSONObject jsonObject = new JSONObject();

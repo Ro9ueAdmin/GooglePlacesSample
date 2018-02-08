@@ -2,14 +2,14 @@ package com.webonise.places;
 
 public class PlaceException extends Exception {
 
-    private Response<Void> errorDetails;
+    private String errorType;
 
-    public PlaceException(Response<Void> errorDetails) {
-        super(errorDetails.getErrorMessage());
-        this.errorDetails = errorDetails;
+    public PlaceException(String errorType) {
+        super(errorType);
+        this.errorType = errorType;
     }
 
-    public Response<Void> getErrorDetails() {
-        return errorDetails;
+    public String getErrorType() {
+        return errorType;
     }
 }

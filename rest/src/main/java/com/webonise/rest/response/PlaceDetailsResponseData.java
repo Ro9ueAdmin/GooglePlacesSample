@@ -8,8 +8,9 @@ public class PlaceDetailsResponseData {
     public String icon;
     public String name;
     public String place_id;
-    public int rating;
+    public float rating;
     public String vicinity;
+    public GeometryResponseData geometry;
     public List<PhotoResponseData> photos;
     public String formatted_address;
     public String formatted_phone_number;
@@ -23,6 +24,7 @@ public class PlaceDetailsResponseData {
         photos = Collections.emptyList();
         formatted_address = "";
         formatted_phone_number = "";
+        geometry = new GeometryResponseData();
     }
 
 }

@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface PlacesApi {
 
-    @GET
+    @GET("maps/api/place/nearbysearch/json")
     Single<PlaceSearchResponse> searchPlaces(
             @Query("key") String apiKey,
             @Query("location") String location,
@@ -18,7 +18,7 @@ public interface PlacesApi {
             @Query("pagetoken") String pageToken
     );
 
-    @GET
+    @GET("maps/api/place/details/output")
     Single<PlaceDetailsResponse> getPlaceDetails(
             @Query("key") String apiKey,
             @Query("placeid") String placeId

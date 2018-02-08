@@ -23,7 +23,8 @@ public class LocationChecker {
     private LocationManager locationManager;
     private PreferenceHelper preferenceHelper;
 
-    public LocationChecker() {
+    public LocationChecker(PreferenceHelper preferenceHelper) {
+        this.preferenceHelper = preferenceHelper;
     }
 
     public Flowable<Location> getLocation(final Activity activity) {

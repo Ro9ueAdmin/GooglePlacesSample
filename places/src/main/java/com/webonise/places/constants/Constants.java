@@ -2,11 +2,12 @@ package com.webonise.places.constants;
 
 public class Constants {
 
-    public static final String API_KEY = "";
+    public static final String API_KEY = "AIzaSyAPEDYAIrLbUlPLSR4IRv-FTFbmc8EzNBo";
     public static final int RADIUS = 1000;
 
     public static final class ErrorType {
         public static final String EMPTY_LOCAL_PLACE_LIST = "EMPTY_LOCAL_PLACE_LIST";
+        public static final String GOOGLE_API_ERROR = "GOOGLE_API_ERROR";
         public static final String EMPTY_SERVER_PLACE_LIST = "EMPTY_SERVER_PLACE_LIST";
         public static final String FETCH_PLACE_DETAILS_ERROR = "FETCH_PLACE_DETAILS_ERROR";
         public static final String NETWORK_ERROR = "NETWORK_ERROR";
