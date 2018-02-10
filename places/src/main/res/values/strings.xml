@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Places</string>
 
+    <!-- Error title and messages -->
     <string name="empty_local_list">Local places list is empty</string>
-    <string name="network_error">No internet connection</string>
     <string name="unknown_error">Unknown error</string>
+    <string name="network_error_title">Network Error</string>
+    <string name="network_error_message">Check internet connection.</string>
+    <string name="http_error_title">Http Error</string>
+    <string name="http_error_message">Something went wrong with server. Please try again later.</string>
+    <string name="timeout_error_title">Timeout Error</string>
+    <string name="timeout_error_message">There has been a communication problem with our server. Please check the network connection, and try later.</string>
+    <string name="unknown_host_error_title">Unknown Host Error</string>
+    <string name="unknown_host_error_message">IP address of host could not be determined. Our server might be down. Please try again.</string>
+    <string name="unknown_error_title">Error</string>
+    <string name="unknown_error_message">Something went wrong. Please try again.</string>
 </resources>

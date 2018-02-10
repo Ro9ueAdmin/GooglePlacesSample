@@ -65,14 +65,13 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
                     public void accept(Response<Place> response) throws Exception {
                         Place place = response.getData();
                         if (place != null && ValidationUtil.isStringNotEmpty(place.getPlaceId())) {
-                            placesLocalRepo.insertDetails(response.getData());
+                            savePlace(place);
                         }
                     }
                 });
     }
 
-    @Override
-    public void savePlace(final Place place) {
+    private void savePlace(final Place place) {
         Completable
                 .fromCallable(new Callable<Object>() {
                     @Override

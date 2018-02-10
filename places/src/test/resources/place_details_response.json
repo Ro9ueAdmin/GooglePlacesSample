@@ -1,0 +1,222 @@
+{
+  "html_attributions" : [],
+  "result" : {
+    "address_components" : [
+      {
+        "long_name" : "Varthur Road",
+        "short_name" : "Varthur Rd",
+        "types" : [ "route" ]
+      },
+      {
+        "long_name" : "Sanjay Nagar",
+        "short_name" : "Sanjay Nagar",
+        "types" : [ "sublocality_level_2", "sublocality", "political" ]
+      },
+      {
+        "long_name" : "Marathahalli",
+        "short_name" : "Marathahalli",
+        "types" : [ "sublocality_level_1", "sublocality", "political" ]
+      },
+      {
+        "long_name" : "Bengaluru",
+        "short_name" : "Bengaluru",
+        "types" : [ "locality", "political" ]
+      },
+      {
+        "long_name" : "Bangalore Urban",
+        "short_name" : "Bangalore Urban",
+        "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+        "long_name" : "Karnataka",
+        "short_name" : "KA",
+        "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+        "long_name" : "India",
+        "short_name" : "IN",
+        "types" : [ "country", "political" ]
+      },
+      {
+        "long_name" : "560037",
+        "short_name" : "560037",
+        "types" : [ "postal_code" ]
+      }
+    ],
+    "adr_address" : "\u003cspan class=\"street-address\"\u003eVarthur Rd\u003c/span\u003e, \u003cspan class=\"extended-address\"\u003eSanjay Nagar, Marathahalli\u003c/span\u003e, \u003cspan class=\"locality\"\u003eBengaluru\u003c/span\u003e, \u003cspan class=\"region\"\u003eKarnataka\u003c/span\u003e \u003cspan class=\"postal-code\"\u003e560037\u003c/span\u003e, \u003cspan class=\"country-name\"\u003eIndia\u003c/span\u003e",
+    "formatted_address" : "Varthur Rd, Sanjay Nagar, Marathahalli, Bengaluru, Karnataka 560037, India",
+    "formatted_phone_number" : "080 4126 4419",
+    "geometry" : {
+      "location" : {
+        "lat" : 12.957091,
+        "lng" : 77.7007225
+      },
+      "viewport" : {
+        "northeast" : {
+          "lat" : 12.9584044802915,
+          "lng" : 77.70206813029151
+        },
+        "southwest" : {
+          "lat" : 12.9557065197085,
+          "lng" : 77.6993701697085
+        }
+      }
+    },
+    "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+    "id" : "12c7f1aa4900729f40cc928fda6eaa5008c891e6",
+    "international_phone_number" : "+91 80 4126 4419",
+    "name" : "GG Luggage",
+    "opening_hours" : {
+      "open_now" : true,
+      "periods" : [
+        {
+          "close" : {
+            "day" : 0,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 0,
+            "time" : "1000"
+          }
+        },
+        {
+          "close" : {
+            "day" : 1,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 1,
+            "time" : "1000"
+          }
+        },
+        {
+          "close" : {
+            "day" : 2,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 2,
+            "time" : "1000"
+          }
+        },
+        {
+          "close" : {
+            "day" : 3,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 3,
+            "time" : "1000"
+          }
+        },
+        {
+          "close" : {
+            "day" : 4,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 4,
+            "time" : "1000"
+          }
+        },
+        {
+          "close" : {
+            "day" : 5,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 5,
+            "time" : "1000"
+          }
+        },
+        {
+          "close" : {
+            "day" : 6,
+            "time" : "2200"
+          },
+          "open" : {
+            "day" : 6,
+            "time" : "1000"
+          }
+        }
+      ],
+      "weekday_text" : [
+        "Monday: 10:00 AM – 10:00 PM",
+        "Tuesday: 10:00 AM – 10:00 PM",
+        "Wednesday: 10:00 AM – 10:00 PM",
+        "Thursday: 10:00 AM – 10:00 PM",
+        "Friday: 10:00 AM – 10:00 PM",
+        "Saturday: 10:00 AM – 10:00 PM",
+        "Sunday: 10:00 AM – 10:00 PM"
+      ]
+    },
+    "photos" : [
+      {
+        "height" : 2048,
+        "html_attributions" : [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/104978102600700475423/photos\"\u003eGG Luggage\u003c/a\u003e"
+        ],
+        "photo_reference" : "CmRaAAAApmhz_f2jMc_FhN-YVsbAosMuDe-EsFX70ZbennGjNBVckxDbVS-cSRsmAFunn4IEvpRBdn7KT2VUCcp0OS_ueOYLTWE2x5pFE1jl2-LInybJ54iukno9Re25Gl7v53tYEhBguwh5OBOHlkca74SbjNlRGhRzn6n2OGWw_fADldDu8mGnB9nntg",
+        "width" : 2048
+      },
+      {
+        "height" : 2592,
+        "html_attributions" : [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/100556329272706480782/photos\"\u003eBinu Shanmughan\u003c/a\u003e"
+        ],
+        "photo_reference" : "CmRaAAAAzc86ecYcQqwfQpIg4OXkk5oKIPaqkidFRQKiZx98CpwIv9EvD5zQ6wcrhtZzY9rwC_UnBSrVpa4nU_dI3_Jyi5_VL-QqWbNldg-evxztcTfYvj7_a4aYAIhmPAlOTVYZEhCRAuF7YHEfQrj6kEtN243dGhTKMkoQh3ukhKuKm046I9X_rLZKxA",
+        "width" : 4608
+      },
+      {
+        "height" : 530,
+        "html_attributions" : [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/104978102600700475423/photos\"\u003eGG Luggage\u003c/a\u003e"
+        ],
+        "photo_reference" : "CmRaAAAAAUKJRat_7KoeykpM9wdQZN8qxk1QmfMaBps6-twY61wzxTZ4dc_YKIdLgVqj8hdKZcieEw2x6PqRcxZm7uENWlQ0WKiE9CAGBno6m4P4eXBYdRwLu5HuTUKSkzXIG_TUEhA_rs2w2IZQ6Z5Oy0bqP8cxGhTtN703QEbHfj8Hb5IAovsjEgDD4Q",
+        "width" : 527
+      }
+    ],
+    "place_id" : "ChIJb0DYPTMSrjsRsnSY4EZpL1A",
+    "rating" : 3.7,
+    "reference" : "CmRRAAAAQD3ezlTrgTrB_OAcywD0l_xDIKVzruZKru7qrzK87ZczXwSb3IfxPDfFzLj69dPwpLpTpbgHW8jEJXV4s5oBz1wPQZx-RqvngW0mBavT3YFdS66uS_gFtnHmKJnn4LRfEhDovGsZGcjI-bbXnrLpayK7GhTg-ULtFbkb5Ts7al4htUCNX1n5qg",
+    "reviews" : [
+      {
+        "author_name" : "Chirag Beniwal",
+        "author_url" : "https://www.google.com/maps/contrib/103059782222817136036/reviews",
+        "language" : "en",
+        "profile_photo_url" : "https://lh4.googleusercontent.com/-1MYyzpLZQa8/AAAAAAAAAAI/AAAAAAAADcA/EGN08ae1ZvE/s128-c0x00000000-cc-rp-mo-ba4/photo.jpg",
+        "rating" : 4,
+        "relative_time_description" : "2 months ago",
+        "text" : "Good bag store with great discounts offers",
+        "time" : 1512027625
+      },
+      {
+        "author_name" : "Dejalma Cavalcanti",
+        "author_url" : "https://www.google.com/maps/contrib/102236972987788333274/reviews",
+        "language" : "en",
+        "profile_photo_url" : "https://lh4.googleusercontent.com/-SVZe61OmoZw/AAAAAAAAAAI/AAAAAAAAY2I/S5TEeImJemI/s128-c0x00000000-cc-rp-mo-ba3/photo.jpg",
+        "rating" : 3,
+        "relative_time_description" : "9 months ago",
+        "text" : "",
+        "time" : 1493685577
+      },
+      {
+        "author_name" : "Binu Shanmughan",
+        "author_url" : "https://www.google.com/maps/contrib/100556329272706480782/reviews",
+        "language" : "en",
+        "profile_photo_url" : "https://lh4.googleusercontent.com/-65ybzNqk3qU/AAAAAAAAAAI/AAAAAAAAJ6Q/-gY52qsz--g/s128-c0x00000000-cc-rp-mo-ba5/photo.jpg",
+        "rating" : 4,
+        "relative_time_description" : "a year ago",
+        "text" : "",
+        "time" : 1477489608
+      }
+    ],
+    "scope" : "GOOGLE",
+    "types" : [ "store", "point_of_interest", "establishment" ],
+    "url" : "https://maps.google.com/?cid=5777952600076350642",
+    "utc_offset" : 330,
+    "vicinity" : "Varthur Road, Sanjay Nagar, Marathahalli, Bengaluru",
+    "website" : "http://www.samsoniteindia.com/storelocator.html"
+  },
+  "status" : "OK"
+}

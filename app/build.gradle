@@ -24,6 +24,8 @@ android {
 dependencies {
     // Test dependencies
     testImplementation "junit:junit:$rootProject.junit"
+    testImplementation "org.powermock:powermock-module-junit4:$rootProject.powerMockito"
+    testImplementation "org.powermock:powermock-api-mockito:$rootProject.powerMockito"
     androidTestImplementation "com.android.support.test:runner:$rootProject.testRunner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espresso"
 
@@ -57,4 +59,10 @@ dependencies {
 
     // RxPermissions
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
 }

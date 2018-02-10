@@ -115,5 +115,6 @@ class PlacesDataAdapter {
         if (fetchPlacesDisposable != null) {
             fetchPlacesDisposable.dispose();
         }
+        isLoading = false;
     }
 }

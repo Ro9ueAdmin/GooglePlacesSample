@@ -8,6 +8,4 @@ public interface PlacesDataProvider {
 
     Single<Response<Place>> getPlaceDetails(String placeId);
 
-    void savePlace(Place place);
-
 }

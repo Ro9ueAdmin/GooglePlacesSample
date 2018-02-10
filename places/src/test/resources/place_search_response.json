@@ -1,0 +1,45 @@
+{
+  "html_attributions" : [],
+  "results" : [
+    {
+      "geometry" : {
+        "location" : {
+          "lat" : 12.95299,
+          "lng" : 77.711989
+        },
+        "viewport" : {
+          "northeast" : {
+            "lat" : 12.95433982989272,
+            "lng" : 77.71333882989272
+          },
+          "southwest" : {
+            "lat" : 12.95164017010728,
+            "lng" : 77.71063917010729
+          }
+        }
+      },
+      "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id" : "a2db9283aaf2d3efeb47713c04f831dc3f884b1e",
+      "name" : "Vedansh computer repairs",
+      "opening_hours" : {
+        "open_now" : true,
+        "weekday_text" : []
+      },
+      "photos" : [
+        {
+          "height" : 4160,
+          "html_attributions" : [ "Photos are copyrighted by their owners" ],
+          "photo_reference" : "CmRaAAAAJenOA9yJjZIYse_AXOn1fOK7uZ3NDABJO3fZzwBd39JfOejGQvcWf0aZkLq14_E9NqY2mEwgmrbor1XwkP9c4rbWUwn3D9hXC02mfh66deRQAMPgVnYHHOuAd-n5NPUEEhDpQjFr5uATTkOVvgcMPlPgGhTNlBqBq1Zy8HH5qWR9Nw-xgpibGQ",
+          "width" : 2340
+        }
+      ],
+      "place_id" : "ChIJNxiwNDgSrjsRIWGqItWE8XY",
+      "rating" : 4.7,
+      "reference" : "CmRbAAAAOCEjZkywmHoKvnb1xf39Lo0Qneb4dWwxH_MYRip34LhpW0dZQQ5X3YSEP-kNI4Bql4CK32eSBz2srmGvZE7zT22-xspkNF-PH0R-4Mjx5Sx9YFVyyZZw1r59l8B7jSDREhCwLWuBOSGY6hjRmyqguHwIGhQBAkuOg2D2C1FzS9XioEKcSmsIpg",
+      "scope" : "GOOGLE",
+      "types" : [ "point_of_interest", "establishment" ],
+      "vicinity" : "B-2,g-2, Ganga Chelston, behind yashomati hospital, marathalli, Bengaluru"
+    }
+  ],
+  "status" : "OK"
+}
