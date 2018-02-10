@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:focusableInTouchMode="true"
+                app:queryHint="Type Place Keyword.."
                 app:closeIcon="@drawable/ic_close"
                 app:searchHintIcon="@drawable/ic_search"
                 app:searchIcon="@drawable/ic_search" />

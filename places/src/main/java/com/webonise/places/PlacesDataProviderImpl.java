@@ -76,6 +76,7 @@ public class PlacesDataProviderImpl implements PlacesDataProvider {
                 .fromCallable(new Callable<Object>() {
                     @Override
                     public Object call() throws Exception {
+                        place.setSaveTime(System.currentTimeMillis());
                         placesLocalRepo.insertDetails(place);
                         return null;
                     }

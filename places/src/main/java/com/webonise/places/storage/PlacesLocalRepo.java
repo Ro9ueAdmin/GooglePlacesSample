@@ -17,6 +17,6 @@ public interface PlacesLocalRepo {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertDetails(Place stepDetails);
 
-    @Query("SELECT * from place")
+    @Query("SELECT * from place ORDER BY save_time DESC")
     Single<List<Place>> getCachePlaceList();
 }

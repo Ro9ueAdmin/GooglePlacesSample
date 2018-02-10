@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 
 import com.webonise.AppManager;
@@ -23,20 +22,20 @@ import com.webonise.util.UIUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 public class HomeActivity extends BaseActivity
-        implements SearchView.OnQueryTextListener,
-        PlacesDataAdapter.View {
+        implements PlacesDataAdapter.View {
 
     private ActivityHomeBinding binding;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private PlacesDataAdapter placesDataAdapter;
     private List<Place> places;
     private PlaceRecyclerAdapter placeRecyclerAdapter;
-    private String lastSearchKeyword = "";
     private LocationChecker locationChecker;
 
     @Override
@@ -54,7 +53,6 @@ public class HomeActivity extends BaseActivity
 
         // Initialize Search View
         binding.searchView.setIconifiedByDefault(false);
-        binding.searchView.setOnQueryTextListener(this);
         View searchPlate = binding.searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
         searchPlate.setBackgroundResource(R.drawable.search_view_bg);
 
@@ -105,19 +103,6 @@ public class HomeActivity extends BaseActivity
     }
 
     @Override
-    public boolean onQueryTextSubmit(String keyword) {
-        searchDataForKeyword(keyword);
-        return true;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String keyword) {
-        searchDataForKeyword(keyword);
-        return true;
-    }
-
-
-    @Override
     public void clearAllData() {
         places.clear();
         placeRecyclerAdapter.notifyDataSetChanged();
@@ -133,14 +118,18 @@ public class HomeActivity extends BaseActivity
         binding.progressBar.setVisibility(View.INVISIBLE);
     }
 
-    private void searchDataForKeyword(String newKeyword) {
-        if (!lastSearchKeyword.equals(newKeyword)) {
-            lastSearchKeyword = newKeyword;
-            placesDataAdapter.setSearchKeyword(newKeyword);
-        }
-    }
-
     private void subscribeForPlacesUpdates() {
+        compositeDisposable.add(RxSearchObservable.fromView(binding.searchView)
+                .debounce(300, TimeUnit.MILLISECONDS)
+                .distinctUntilChanged()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String newKeyword) throws Exception {
+                        placesDataAdapter.setSearchKeyword(newKeyword);
+                    }
+                }));
+
         compositeDisposable.add(placesDataAdapter.getDataFlowable()
                 .subscribe(new Consumer<Response<SearchResult>>() {
                     @Override
@@ -160,6 +149,7 @@ public class HomeActivity extends BaseActivity
                         UIUtil.showMessage(HomeActivity.this, "Error: " + throwable.getMessage());
                     }
                 }));
+        placesDataAdapter.setSearchKeyword("");
     }
 
     private void fetchLocation() {
